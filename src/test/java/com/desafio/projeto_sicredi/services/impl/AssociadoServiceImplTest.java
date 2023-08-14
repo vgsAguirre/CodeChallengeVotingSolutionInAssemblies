@@ -1,13 +1,10 @@
-package com.desafio.projeto_sicredi.services;
+package com.desafio.projeto_sicredi.services.impl;
 
 import com.desafio.projeto_sicredi.dtos.AssociadoDto;
 import com.desafio.projeto_sicredi.entities.Associado;
 import com.desafio.projeto_sicredi.exceptions.CustomException;
-import com.desafio.projeto_sicredi.exceptions.ErrorResponse;
 import com.desafio.projeto_sicredi.repositories.AssociadoRepository;
-import com.desafio.projeto_sicredi.services.impl.AssociadoServiceImpl;
 import com.desafio.projeto_sicredi.validators.AssociadoValidator;
-import com.desafio.projeto_sicredi.validators.CpfValidator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,17 +13,14 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class AssociadoServiceTest {
+class AssociadoServiceImplTest {
     @Mock
     private AssociadoRepository associadoRepository;
 

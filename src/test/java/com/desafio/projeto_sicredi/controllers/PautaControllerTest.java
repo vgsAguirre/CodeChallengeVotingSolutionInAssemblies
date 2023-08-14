@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringJUnitConfig
 @WebMvcTest(PautaController.class)
 @ContextConfiguration(classes = {PautaController.class})
-public class PautaControllerTest {
+class PautaControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -37,7 +37,7 @@ public class PautaControllerTest {
 
     @Test
     @DisplayName("Teste cadastrar pauta")
-    public void testCadastrarPauta() throws Exception {
+    void testCadastrarPauta() throws Exception {
         String titulo = "Titulo da pauta";
         String descricao = "Descrição da pauta";
         Integer tempoSessao = 1;
@@ -54,7 +54,7 @@ public class PautaControllerTest {
     }
 
     @Test
-    public void testListarPautas() throws Exception {
+    void testListarPautas() throws Exception {
         PautaDto pauta1 = PautaDto
                 .builder()
                 .titulo("Titulo da pauta 1")
