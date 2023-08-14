@@ -12,6 +12,7 @@ import com.desafio.projeto_sicredi.repositories.SessaoRepository;
 import com.desafio.projeto_sicredi.repositories.VotoRepository;
 import com.desafio.projeto_sicredi.services.VotoService;
 import com.desafio.projeto_sicredi.validators.AssociadoValidator;
+import com.desafio.projeto_sicredi.validators.CpfValidator;
 import com.desafio.projeto_sicredi.validators.VotoValidator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -36,7 +37,7 @@ public class VotoServiceImpl implements VotoService {
 
             if (validationAssociado.cpfVazioOuNulo(cpfAssociado)) throw new CustomException(HttpStatus.BAD_REQUEST, "CPF não pode ser vazio ou nulo.");
 
-            if (!validationAssociado.validaCpf(cpfAssociado)) throw new CustomException(HttpStatus.BAD_REQUEST, "CPF inválido.");
+            if (!CpfValidator.isValid(cpfAssociado)) throw new CustomException(HttpStatus.BAD_REQUEST, "CPF inválido.");
 
             cpfAssociado = validationAssociado.removerMascaraCPF(cpfAssociado);
 

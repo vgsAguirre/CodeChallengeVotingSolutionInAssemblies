@@ -23,10 +23,6 @@ public class AssociadoValidator {
         return cpf.replaceAll("\\D", "");
     }
 
-    public boolean validaCpf(String cpf){
-        return cpfValidator.isValid(cpf);
-    }
-
     public boolean existeAssociadoComCPF(String cpf) {
         return associadoRepository.existsByCpf(cpf);
     }

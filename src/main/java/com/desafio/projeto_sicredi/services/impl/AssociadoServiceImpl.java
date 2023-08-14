@@ -6,6 +6,7 @@ import com.desafio.projeto_sicredi.exceptions.CustomException;
 import com.desafio.projeto_sicredi.repositories.AssociadoRepository;
 import com.desafio.projeto_sicredi.services.AssociadoService;
 import com.desafio.projeto_sicredi.validators.AssociadoValidator;
+import com.desafio.projeto_sicredi.validators.CpfValidator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -37,7 +37,7 @@ public class AssociadoServiceImpl implements AssociadoService {
             throw new CustomException(HttpStatus.CONFLICT, "Já existe um associado com esse cpf.");
         }
 
-        if (!validationAssociado.validaCpf(cpf)) {
+        if (!CpfValidator.isValid(cpf)) {
             throw new CustomException(HttpStatus.BAD_REQUEST, "Cpf não é válido.");
         }
 
@@ -69,7 +69,7 @@ public class AssociadoServiceImpl implements AssociadoService {
             return listAssociado.stream()
                     .map(associado -> modelMapper
                             .map(associado, AssociadoDto.class))
-                    .collect(Collectors.toList());
+                    .toList();
 
             }catch (Exception e){
                 throw new CustomException(HttpStatus.INTERNAL_SERVER_ERROR, INTERNAL_ERROR_MESSAGE);
