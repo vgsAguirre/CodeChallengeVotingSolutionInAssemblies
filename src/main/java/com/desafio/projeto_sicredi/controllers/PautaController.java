@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -16,15 +17,12 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/pautas")
 @Tag(name = "Pautas", description = "API para gerenciar pautas")
 public class PautaController {
 
     private final PautaServiceImpl pautaService;
-
-    public PautaController(PautaServiceImpl pautaService) {
-        this.pautaService = pautaService;
-    }
 
     @PostMapping("/cadastrar")
     @Operation(summary = "Cadastrar Pauta", description = "Endpoint para cadastrar uma nova pauta.")
@@ -57,13 +55,7 @@ public class PautaController {
     @Hidden
     @RequestMapping("/resultado-votacao")
     public class ResultadoVotacaoController {
-
-        private final PautaServiceImpl pautaService;
         private final Logger logger = LoggerFactory.getLogger(ResultadoVotacaoController.class);
-
-        public ResultadoVotacaoController(PautaServiceImpl pautaService) {
-            this.pautaService = pautaService;
-        }
 
         @Operation(summary = "Obter resultado da votação")
         @ApiResponse(responseCode = "200", description = "Resultado da votação com sucesso.")

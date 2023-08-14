@@ -5,6 +5,7 @@ import com.desafio.projeto_sicredi.services.impl.VotoServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,15 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/votos")
 @Tag(name = "Votos", description = "API para gerenciar votos")
 public class VotoController {
 
     private final VotoServiceImpl votoService;
-
-    public VotoController(VotoServiceImpl votoService) {
-        this.votoService = votoService;
-    }
 
     @PostMapping("/votar")
     @Operation(summary = "Registrar Voto", description = "Endpoint para registrar um novo voto.")

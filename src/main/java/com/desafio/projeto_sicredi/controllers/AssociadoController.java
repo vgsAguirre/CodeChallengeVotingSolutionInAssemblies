@@ -5,21 +5,19 @@ import com.desafio.projeto_sicredi.services.impl.AssociadoServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/associados")
 @Tag(name = "Associados", description = "API para gerenciar associados")
 public class AssociadoController {
 
     private final AssociadoServiceImpl associadoService;
-
-    public AssociadoController(AssociadoServiceImpl associadoService) {
-        this.associadoService = associadoService;
-    }
 
     @PostMapping("/cadastrar")
     @Operation(summary = "Cadastrar Associado", description = "Endpoint para cadastrar um novo associado.")
