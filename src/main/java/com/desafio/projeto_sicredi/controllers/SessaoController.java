@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/sessoes")
+@RequestMapping("/api/public/v1/sessoes")
 @Tag(name = "Sessões", description = "API para gerenciar sessões de votação")
 public class SessaoController {
     private final SessaoServiceImpl sessaoService;

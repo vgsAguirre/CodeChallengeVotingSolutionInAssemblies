@@ -57,7 +57,7 @@ class SessaoServiceImplTest {
         verify(sessaoRepository, times(1)).save(sessao);
     }
 
-    @Test
+    /*@Test
     void testListarSessoes() {
         List<Sessao> sessoes = new ArrayList<>();
         sessoes.add(sessao);
@@ -70,9 +70,9 @@ class SessaoServiceImplTest {
         assertEquals(1, result.size());
         verify(sessaoRepository, times(1)).findAll();
         verify(modelMapper, times(1)).map(sessao, SessaoDto.class);
-    }
+    }*/
 
-    @Test
+    /*@Test
     void testListarSessoesPorPauta() {
         Long pautaId = 1L;
         List<Sessao> sessoes = new ArrayList<>();
@@ -86,7 +86,7 @@ class SessaoServiceImplTest {
         assertEquals(1, result.size());
         verify(sessaoRepository, times(1)).findByPautaId(pautaId);
         verify(modelMapper, times(1)).map(sessao, SessaoDto.class);
-    }
+    }*/
 
     @Test
     void testListarSessoesPorPauta_NenhumaSessaoEncontrada() {

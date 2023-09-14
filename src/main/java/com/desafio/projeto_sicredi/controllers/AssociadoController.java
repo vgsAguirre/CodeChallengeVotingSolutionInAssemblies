@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/associados")
+@RequestMapping("/api/public/v1/associados")
 @Tag(name = "Associados", description = "API para gerenciar associados")
 public class AssociadoController {
 

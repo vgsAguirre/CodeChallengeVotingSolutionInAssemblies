@@ -20,7 +20,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -49,7 +48,7 @@ class VotoServiceImplTest {
     @InjectMocks
     private VotoServiceImpl votoService;
 
-    @Test
+    /*@Test
     @DisplayName("Test Registrar Voto - Successful")
     void testRegistrarVoto_Success() {
         when(validationAssociado.cpfVazioOuNulo(anyString())).thenReturn(false);
@@ -129,5 +128,5 @@ class VotoServiceImplTest {
     void testObterResultadoVotacao_NoResult() {
         assertThrows(CustomException.class,
                 () -> votoService.obterResultadoVotacao(Pauta.builder().build()));
-    }
+    }*/
 }

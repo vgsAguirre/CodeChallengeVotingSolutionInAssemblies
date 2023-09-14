@@ -1,21 +1,14 @@
 package com.desafio.projeto_sicredi;
 
-import org.springdoc.core.GroupedOpenApi;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
-public class SwaggerConfig {
-
-    @Bean
-    public GroupedOpenApi customOpenAPI() {
-        return GroupedOpenApi.builder()
-                .group("api")
-                .packagesToScan("com.desafio.projeto_sicredi.controllers")
-                .build();
-    }
+@OpenAPIDefinition
+public class Config {
 
     @Bean
     public RestTemplate restTemplate() {

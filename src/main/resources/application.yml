@@ -1,3 +1,6 @@
+springdoc:
+  api-docs:
+    enabled: true
 spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL}

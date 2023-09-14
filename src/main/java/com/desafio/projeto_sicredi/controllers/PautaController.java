@@ -13,12 +13,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/pautas")
+@RequestMapping("/api/public/v1/pautas")
 @Tag(name = "Pautas", description = "API para gerenciar pautas")
 public class PautaController {
 

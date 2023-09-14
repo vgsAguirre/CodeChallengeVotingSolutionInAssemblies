@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.MappingException;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -81,7 +82,7 @@ public class PautaServiceImpl implements PautaService {
         return webClient.get()
                 .uri(url, pautaId)
                 .retrieve()
-                .onStatus(HttpStatus::isError, response -> Mono.error(new CustomException(HttpStatus.INTERNAL_SERVER_ERROR, "Falha ao obter o resultado da votação.")))
+                .onStatus(HttpStatusCode::isError, response -> Mono.error(new CustomException(HttpStatus.INTERNAL_SERVER_ERROR, "Falha ao obter o resultado da votação.")))
                 .bodyToMono(ResultadoVotacaoDto.class)
                 .switchIfEmpty(Mono.error(new CustomException(HttpStatus.NOT_FOUND, "Nenhum voto encontrado para a pauta.")))
                 .block();
